@@ -22,6 +22,7 @@ use {
   end
 }
 ```
+Run `:PackerInstall` and `:PackerCompile`
 
 ## Features
 - dotnet secrets management
