@@ -1,6 +1,7 @@
 # Dotnet-squire
 A plugin to provide helper functionality related to dotnet development.
 ## Installation
+### Lazy
 Follow the instructions below to install the plugin using [Lazy](https://github.com/folke/lazy.nvim):
 
 Add the following to your Lazy `setup` table:
@@ -8,6 +9,17 @@ Add the following to your Lazy `setup` table:
 {
   'YanikCeulemans/dotnet-squire',
   config = true,
+}
+```
+
+### Packer
+Add the following snippet to your packer setup:
+```
+use {
+  'YanikCeulemans/dotnet-squire',
+  config = function()
+    require('dotnet-squire').setup()
+  end
 }
 ```
 
