@@ -11,7 +11,7 @@ do
   if (("linux" == os) or ("osx" == os) or ("bsd" == os)) then
     secrets_base_path = "~/.microsoft/usersecrets"
   else
-    secrets_base_path = "%APPDATA%\\Microsoft\\UserSecrets"
+    secrets_base_path = "$APPDATA\\Microsoft\\UserSecrets"
   end
 end
 local function get_user_secrets_path(secret_id)
@@ -101,7 +101,7 @@ local function select_proj(projs, handle_choice)
   return vim.ui.select(projs, {prompt = "Select project"}, handle_choice)
 end
 local function find_proj_files(dir)
-  return core.concat(fs.absglob(dir, "*.csproj"), fs.absglob(dir, "*.fsproj"))
+  return core.concat(fs.absglob(dir, "**/*.csproj"), fs.absglob(dir, "**/*.fsproj"))
 end
 local function secrets()
   local proj_files = find_proj_files(vim.fn.getcwd())

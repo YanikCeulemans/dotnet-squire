@@ -13,11 +13,12 @@
             (= :osx os)
             (= :bsd os))
       "~/.microsoft/usersecrets"
-      "%APPDATA%\\Microsoft\\UserSecrets")))
+      "$APPDATA\\Microsoft\\UserSecrets")))
 
 
 (fn get-user-secrets-path [secret-id]
-  (-> [secrets-base-path secret-id "secrets.json"]
+  (-> 
+    [secrets-base-path secret-id "secrets.json"]
     fs.join-path
     vim.fn.expand))
 
@@ -115,7 +116,7 @@
 
 
 (fn find-proj-files [dir]
-  (core.concat (fs.absglob dir "*.csproj") (fs.absglob dir "*.fsproj")))
+  (core.concat (fs.absglob dir "**/*.csproj") (fs.absglob dir "**/*.fsproj")))
 
 
 (fn secrets []
